@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+}
+
+html,
+body {
+  background-color: #f4f4f4;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
