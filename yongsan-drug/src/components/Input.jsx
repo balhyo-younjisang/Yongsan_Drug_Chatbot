@@ -33,10 +33,13 @@ const Input = () => {
     dispatch(changeChat("")); // 초기화
     setEnterState(false); // 답변이 올 때까지 입력 금지
 
-    const socket = io.connect("http://localhost:3000", {
-      // socket에 연결
-      cors: { origin: "*" }, // cors setting
-    });
+    const socket = io.connect(
+      "https://port-0-chatbot-backend-3prof2lll4t38bw.sel3.cloudtype.app/",
+      {
+        // socket에 연결
+        cors: { origin: "*" }, // cors setting
+      }
+    );
 
     socket.emit("chat-msg", chat); // socket 서버에 전송
 
