@@ -5,7 +5,7 @@ export const Bot = ({ text }) => {
   return (
     <>
       <BotChat>
-        <ChatContent>{JSON.stringify(text)}</ChatContent>
+        <ChatContent>{eval(JSON.stringify(text))}</ChatContent>
       </BotChat>
     </>
   );
