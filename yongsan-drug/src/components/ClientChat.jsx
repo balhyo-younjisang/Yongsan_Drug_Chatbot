@@ -5,7 +5,7 @@ export const Client = ({ text }) => {
   return (
     <>
       <ClientChat>
-        <ChatContent>{text}</ChatContent>
+        <ChatContent>{JSON.stringify(text)}</ChatContent>
       </ClientChat>
     </>
   );
