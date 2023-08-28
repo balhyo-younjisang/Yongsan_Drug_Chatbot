@@ -21,7 +21,7 @@ const storeGPTResponse = (response) => {
 }
 
 exports.callChatGpt = async (text) => {
-    console.log(...addingPrompt)
+    // console.log(...addingPrompt)
     try {
         const chatCompletion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
@@ -32,7 +32,6 @@ exports.callChatGpt = async (text) => {
                 },
                 { role: "user", content: text },
                 { role: 'system', content: "Chatbot to eradicate drug addiction" }],
-            max_tokens: 300,
             temperature: 0,
             frequency_penalty: 0.5,
             presence_penalty: 0.5,

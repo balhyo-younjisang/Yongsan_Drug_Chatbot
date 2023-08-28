@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { useSelector, useDispatch } from "react-redux";
 import { changeScreen } from "../store/Screen";
 import { changeChat } from "../store/Chat";
-import { appendChatArr } from "../store/ChatHistory";
+import { appendChatArr, popChatArr } from "../store/ChatHistory";
 
 const Input = () => {
   // for use dispatch
@@ -27,7 +27,8 @@ const Input = () => {
   /** Send 버튼을 눌렀을 때 메시지 발송 */
   const sendChat = () => {
     dispatch(changeScreen()); // change screen state
-    dispatch(appendChatArr(chat)); // change chat history state
+    dispatch(appendChatArr(inputText)); // change chat history state
+    dispatch(appendChatArr("챗봇이 입력 중입니다..."));
 
     setInputText(""); // 초기화
     dispatch(changeChat("")); // 초기화
@@ -45,6 +46,8 @@ const Input = () => {
 
     // socket 서버에서 보낸 값 받아서 처리
     socket.on("return", (msg) => {
+      console.log(msg);
+      dispatch(popChatArr());
       dispatch(appendChatArr(msg)); // 받아온 값 채팅 배열에 추가
       setEnterState(true); // 답변이 왔으므로 다음 질문 입력 가능
     });

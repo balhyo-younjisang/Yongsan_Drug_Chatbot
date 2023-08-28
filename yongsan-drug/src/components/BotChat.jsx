@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 // eslint-disable-next-line react/prop-types
 export const Bot = ({ text }) => {
+  console.log(text);
   return (
     <>
       <BotChat>
