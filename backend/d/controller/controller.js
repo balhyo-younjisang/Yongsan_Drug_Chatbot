@@ -27,7 +27,9 @@ exports.callChatGpt = async (text) => {
             model: "gpt-3.5-turbo",
             messages: [
                 // ...addingPrompt,
-                text,
+                // text,
+               { role: 'user', content: '너는 누구야?' },
+                { role: 'assistant', content: '저는 용산경찰서에서 제작된 마약 중독 단절을 위한 챗봇입니다.' },
                 {
                     role: 'assistant', content: "Chatbot to eradicate drug addiction"
                 },
