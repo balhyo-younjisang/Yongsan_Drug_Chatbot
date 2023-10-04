@@ -52,6 +52,6 @@ exports.callChatGpt = async (text) => {
         if (err.type === 'invalid_request_error') {
             return { message: `사용 가능한 토큰을` }
         }
-        return { message: err }
+        return { message: addingPrompt }
     }
 }
