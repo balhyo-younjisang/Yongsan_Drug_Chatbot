@@ -41,6 +41,7 @@ const Input = () => {
       }
     );
 
+    console.log(inputText);
     socket.emit("chat-msg", inputText); // socket 서버에 전송
 
     // socket 서버에서 보낸 값 받아서 처리
