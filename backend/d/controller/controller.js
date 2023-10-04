@@ -21,7 +21,7 @@ const storeGPTResponse = (response) => {
 }
 
 exports.callChatGpt = async (text) => {
-    console.log(...addingPrompt);
+    console.log(addingPrompt);
     // console.log(text);
     try {
         const chatCompletion = await openai.createChatCompletion({
