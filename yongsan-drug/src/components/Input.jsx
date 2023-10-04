@@ -30,7 +30,6 @@ const Input = () => {
     dispatch(appendChatArr(inputText)); // change chat history state
     dispatch(appendChatArr("챗봇이 입력 중입니다..."));
 
-    setInputText(""); // 초기화
     dispatch(changeChat("")); // 초기화
     setEnterState(false); // 답변이 올 때까지 입력 금지
 
@@ -42,11 +41,12 @@ const Input = () => {
       }
     );
 
-    socket.emit("chat-msg", chat); // socket 서버에 전송
+    socket.emit("chat-msg", inputText); // socket 서버에 전송
 
     // socket 서버에서 보낸 값 받아서 처리
     socket.on("return", (msg) => {
       console.log(msg);
+      setInputText(""); // 초기화
       dispatch(popChatArr());
       dispatch(appendChatArr(msg)); // 받아온 값 채팅 배열에 추가
       setEnterState(true); // 답변이 왔으므로 다음 질문 입력 가능
