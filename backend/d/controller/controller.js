@@ -21,13 +21,13 @@ const storeGPTResponse = (response) => {
 }
 
 exports.callChatGpt = async (text) => {
-    // console.log(...addingPrompt)
+    console.log(...addingPrompt);
     // console.log(text);
     try {
         const chatCompletion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
-                ...addingPrompt,
+                // ...addingPrompt,
                 // text,
                { role: 'user', content: '너는 누구야?' },
                 { role: 'assistant', content: '저는 용산경찰서에서 제작된 마약 중독 단절을 위한 챗봇입니다.' },
@@ -52,6 +52,6 @@ exports.callChatGpt = async (text) => {
         if (err.type === 'invalid_request_error') {
             return { message: `사용 가능한 토큰을` }
         }
-        return { message: addingPrompt }
+        return { message: err }
     }
 }
