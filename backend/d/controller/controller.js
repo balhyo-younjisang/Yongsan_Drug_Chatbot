@@ -26,7 +26,8 @@ exports.callChatGpt = async (text) => {
         const chatCompletion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
-                ...addingPrompt,
+                // ...addingPrompt,
+                text,
                 {
                     role: 'assistant', content: "Chatbot to eradicate drug addiction"
                 },
