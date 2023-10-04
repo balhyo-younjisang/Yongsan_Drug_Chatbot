@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('chat-msg', async (msg) => {
-    // console.log(msg);
+    console.log(msg);
     try {
       const message = await callChatGpt(msg);
 
